@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  user-service:
+    image: 'user-service:latest'
+    build:
+      context: .
+    container_name: user-service
+    depends_on:
+      - user-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://user-db:5432/user-db
+      - SPRING_DATASOURCE_USERNAME=user-db-user
+      - SPRING_DATASOURCE_PASSWORD=user-db-password
+      - WEATHER_API_KEY=fd69b05eb60d4d78a7d104128210711
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+    ports:
+      - 5001:5005
+      - 8881:8881
+
+  user-db:
+    image: postgres
+    container_name: user-db
+    environment:
+      - POSTGRES_DB=user-db
+      - POSTGRES_USER=user-db-user
+      - POSTGRES_PASSWORD=user-db-password
+    ports:
+      - 5551:5432
