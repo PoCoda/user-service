@@ -1,4 +1,8 @@
 version: '2'
+networks:
+  default:
+    external:
+      name: external-example
 
 services:
   user-service:
