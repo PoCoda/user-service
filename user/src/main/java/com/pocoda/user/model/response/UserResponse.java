@@ -1,5 +1,6 @@
 package com.pocoda.user.model.response;
 
+import com.pocoda.user.model.City;
 import lombok.Builder;
 import lombok.Value;
 
@@ -11,4 +12,5 @@ public class UserResponse {
     private String firstName;
     private String lastName;
     private String password;
+    private City city;
 }

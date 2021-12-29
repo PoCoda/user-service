@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/2021/1-add_users_table.sql
   - include:
       file: db/changelog/2021/2-insert_admin_user.sql
+  - include:
+      file: db/changelog/2021/3-add_user_city.sql

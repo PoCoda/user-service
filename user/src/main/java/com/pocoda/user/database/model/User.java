@@ -1,5 +1,6 @@
 package com.pocoda.user.database.model;
 
+import com.pocoda.user.model.City;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "username", nullable = false)
@@ -27,4 +28,8 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "city", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private City city;
 }
