@@ -31,5 +31,6 @@ public class User {
 
     @Column(name = "city", nullable = false)
     @Enumerated(EnumType.STRING)
+    @Setter
     private City city;
 }

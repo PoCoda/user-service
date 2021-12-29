@@ -1,5 +1,6 @@
 package com.pocoda.user.service;
 
+import com.pocoda.user.model.request.UpdateCityRequest;
 import com.pocoda.user.model.request.UserRequest;
 import com.pocoda.user.model.response.UserResponse;
 
@@ -9,4 +10,6 @@ public interface UserService {
     UserResponse getByUsername(String username);
 
     UserResponse create(UserRequest request);
+
+    UserResponse updateCity(UpdateCityRequest request);
 }

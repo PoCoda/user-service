@@ -1,5 +1,6 @@
 package com.pocoda.user.controller;
 
+import com.pocoda.user.model.request.UpdateCityRequest;
 import com.pocoda.user.model.request.UserRequest;
 import com.pocoda.user.model.response.UserResponse;
 import com.pocoda.user.service.UserService;
@@ -28,6 +29,12 @@ public class UserController {
     @PostMapping()
     public ResponseEntity<UserResponse> create(@RequestBody UserRequest request) {
         var result = userService.create(request);
+        return ResponseEntity.ok(result);
+    }
+
+    @PutMapping("/city")
+    public ResponseEntity<UserResponse> updateCity(@RequestBody UpdateCityRequest request) {
+        var result = userService.updateCity(request);
         return ResponseEntity.ok(result);
     }
 }
